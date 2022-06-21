@@ -12,9 +12,9 @@ void main(){
   //sumaPositivosNegativos();
 
   //Segunda Parte del curso
-  condicionalSwitch();
-
-
+  //condicionalSwitch();
+  //condicionalWhile();
+  condicionalDoWhile();
 }
 
 void practicandoCurso(){
@@ -185,6 +185,30 @@ void condicionalSwitch(){
   }
 }
 
+
+void condicionalWhile(){
+  var valor = true;
+  var count = 1;
+  while(valor){
+    if(count == 6){
+      valor = false;
+    }
+    count++;
+    print("Ejecucion ${count}");
+  }
+}
+
+void condicionalDoWhile(){
+  var valor = true;
+  var count = 1;
+  do{
+    if(count == 6){
+      break;
+    }
+    count++;
+    print("Ejecucion ${count}");
+  }while(valor);
+}
 
 
 class MyApp extends StatelessWidget {
