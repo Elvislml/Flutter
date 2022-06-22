@@ -1,117 +1,26 @@
 import 'package:flutter/material.dart';
 
+import 'estudiante.dart';
+
 /*void main() {
   runApp(const MyApp());
 }
 
  */
 
-
 void main(){
-  
-
-  encontrarDuplicados();
-
-  //anonimas("Elvis",22);
-  //var data = ["Elvis",21];
-  //anonimas(data);
-  //var dataMapeo = {"nombre":"Elvis","edad":21};
-  //anonimasMapeo(dataMapeo);
-
-  //anonimasParemetrosOp(dataMapeo,"Hola toy programando",2);
-
-  //anonimasParemetrosOpNombrados(dataMapeo,valor1:"Hola toy programando",valor2: 21);
-}
-
-//Declaracion de Funciones
-
-//Cuando retorna enteros
-int funcionRegresaEnteros(){
-  return 1;
-}
-
-//Cuando retorna cadenas
-String funcionRegresaCadenas(){
-  return "Hola";
-}
-
-//Cuando no sabemos que tipo de datos vamos a regresar
-funcion(){
-  return true;
-}
-
-//Funciones son objetos
-funcionObejetos(String data){
-  print(data);
-}
-
-
-//Funciones Anonimas
-
-lista() => [1,2,3,4,5];
-
-//var anonimas = (String nombre, int edad) => print("Mi nombre es ${nombre} y mi edad es ${edad}");
-//var anonimasDatosLista = (var data) => print("Mi nombre es ${data[0]} y mi edad es ${data[1]}");
-
-var anonimasMapeo = (var data) => print("Mi nombre es ${data['nombre']} y mi edad es ${data['edad']}");
-
-
-//Parametros opcionales
-var anonimasParemetrosOp = (data, [valor1,valor2]) => {
-  print("Mi nombre es ${data['nombre']} y mi edad es ${data['edad']}"),
-  print(valor1)
-};
-
-//Parametros nombrados opcionales
-var anonimasParemetrosOpNombrados = (data, {valor1,valor2}) => {
-  print("Mi nombre es ${data['nombre']} y mi edad es ${data['edad']}"),
-  print("${valor1} ${valor2}")
-};
-
-
-void encontrarDuplicados(){
-  var array = [1,2,2,2,3,4,4,5,6,6,7,5,8,9,6,6,8,8,1,4,4];
-  var lista = List.filled(array.length, 0);
-
-  for(var i = 0; i<array.length; i++){
-    int count = 0;
-
-    for(var j = 0; j<array.length;j++){
-      if(array[i] == array[j]){
-        count ++;
-        if(numero(lista, array[i])){
-          lista[i] = array[i];
-        }
-      }
-    }
-    if(lista[i] != 0){
-      print("${lista[i]} se repite: $count");
-    }
-  }
-}
-
-bool numero(lista, num){
-  for(var i = 0; i<lista.length;i++) {
-    if (lista[i] == num) {
-      return false;
-    }
-  }
-  return true;
-}
-
-
-void finalConst(){
-  final String valor1 = "Dart";
-  const VALOR2 = 23;
-
   /*
-  La variable final solo se puede configurar una vez y se inicializa cuando se accede a ella
+  var data = Estudiante("Elvis",12);
+  print("${data.nombre} y tengo ${data.edad}");
+
    */
 
-  /*
-  Const es de naturaleza final interna, pero la principal diferencia es que su constante de tiempoç
-  de compilacion, incluso su no usa su valor, se inicializa y ocupara espacio en la memoria
-   */
+  //Constructores nombranos
+  var dataNombrado = Estudiante.Constructor("Maria", 10);
+  print("${dataNombrado.getNombre} y tengo de nota ${dataNombrado. calificacion}");
+
+  dataNombrado.setNombre = "Carlos";
+  print("Nuevo nombre es ${dataNombrado.getNombre}");
 }
 
 
