@@ -17,8 +17,16 @@ class MyTextField extends StatefulWidget{
 
 class _MyTextFieldState extends State<MyTextField>{
 
-  void onChanged(String value){
-    print(value);
+  String inputValue = "";
+
+  final TextEditingController controller = new TextEditingController();
+
+  void onSubmitted(String value){
+    setState( () {
+      inputValue = inputValue + "\n" + value;
+      //Limpiar el Texto
+      controller.text = "";
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -29,17 +37,22 @@ class _MyTextFieldState extends State<MyTextField>{
         backgroundColor: Colors.green,
       ),
       body: new Container(
+        padding: const EdgeInsets.all(10.0),
         child: new Center(
           child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               new TextField(
                 decoration: new InputDecoration(
                   hintText: "Ingrese cualquier Texto",
                 ),
                 onSubmitted: (String value) {
-                  onChanged(value);
+                  onSubmitted(value);
                 },
+                controller: controller,
+
               ),
+              new Text(inputValue),
             ],
           ),
         ),
